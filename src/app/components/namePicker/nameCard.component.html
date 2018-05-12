@@ -5,3 +5,7 @@
     <button type="button" (click)="onLikeClicked()">Like</button>
     <button type="button" (click)="onDislikeClicked()">Dislike</button>
 </div>
+
+<div *ngIf="!name">
+    Fetching names...
+</div>

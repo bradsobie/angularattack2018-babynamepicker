@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   }
 
   getNames() {
-    this.namesService.getNames()
+    this.namesService.getNames('M')
       .subscribe((entities: {}[]) => {
           console.log(entities);
         }, (error: Kinvey.BaseError) => {

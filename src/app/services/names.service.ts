@@ -5,10 +5,15 @@ import { Kinvey } from 'kinvey-angular2-sdk';
   providedIn: 'root'
 })
 export class NamesService {
-  getNames() {
+  getNames(gender) {
     const dataStore = Kinvey.DataStore.collection('names');
     const query = new Kinvey.Query();
     query.greaterThanOrEqualTo('count', 150);
+
+    if (gender) {
+      query.equalTo('gender', gender);
+    }
+
     return dataStore.find(query);
   }
 }

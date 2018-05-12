@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Kinvey } from 'kinvey-angular2-sdk';
 
 import { NamesService } from './services/names.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,29 +9,22 @@ import { NamesService } from './services/names.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private namesService: NamesService) {}
+  constructor(
+    private namesService: NamesService,
+    private userService: UserService
+  ) {}
 
   ngOnInit() {
-    const activeUser = Kinvey.User.getActiveUser();
-
-    if (activeUser) {
-      activeUser.me()
-        .then((activeUser: Kinvey.User) => {
-          this.getNames();
-        });
-    } else {
-      Kinvey.User.signup()
-        .then((user: Kinvey.User) => {
-          this.getNames();
-        });
-    }
+    this.userService.initUser().then(() => {
+      this.getNames();
+    });
   }
 
   getNames() {
     this.namesService.getNames('M')
       .subscribe((entities: {}[]) => {
           console.log(entities);
-        }, (error: Kinvey.BaseError) => {
+        }, (error) => {
           console.log(error);
         }, () => {
           console.log('complete');

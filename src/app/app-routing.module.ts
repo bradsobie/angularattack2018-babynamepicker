@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SelectGenderComponent } from './pages/selectGender/selectGender.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'selectgender', pathMatch: 'full' },
   { path: 'selectgender', component: SelectGenderComponent }
 ];
 

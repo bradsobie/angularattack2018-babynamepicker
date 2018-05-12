@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { SelectGenderComponent } from './pages/selectGender/selectGender.component';
-import { NamePickerComponent } from './pages/namePicker/namePicker.component';
+import { SelectGenderComponent } from './components/selectGender/selectGender.component';
+import { NamePickerComponent } from './components/namePicker/namePicker.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'selectgender', pathMatch: 'full' },

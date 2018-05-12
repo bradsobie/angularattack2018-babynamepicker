@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './/app-routing.module';
-import { SelectGenderModule } from './pages/selectGender/selectGender.module';
-import { NamePickerModule } from './pages/namePicker/namePicker.module';
+import { AppRoutingModule } from './app-routing.module';
+import { SelectGenderModule } from './components/selectGender/selectGender.module';
+import { NamePickerModule } from './components/namePicker/namePicker.module';
 
 @NgModule({
   declarations: [

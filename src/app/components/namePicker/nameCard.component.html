@@ -1,11 +1,9 @@
-<div *ngIf="name">
-    <div>{{name.name}}</div>
-    <div>Used {{name.count}} in 2017 in US</div>
+<div class="name-card">
+    <div *ngIf="name">
+        <div class="name-card__name">{{name.name}}</div>
+        <div class="name-card__desc">Used {{name.count}} times in 2017 in US</div>
 
-    <button type="button" (click)="onLikeClicked()">Like</button>
-    <button type="button" (click)="onDislikeClicked()">Dislike</button>
-</div>
-
-<div *ngIf="!name">
-    Fetching names...
+        <button type="button" (click)="onLikeClicked()">Like</button>
+        <button type="button" (click)="onDislikeClicked()">Dislike</button>
+    </div>
 </div>

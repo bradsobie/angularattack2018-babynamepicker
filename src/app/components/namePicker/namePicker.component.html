@@ -1,8 +1,16 @@
 <div class="name-picker"
     [ngClass]="{'name-picker--boy': gender === 'M', 'name-picker--girl': gender === 'F'}">
     <name-card
+        *ngIf="currentName"
         [name]="currentName"
         [onLikeClicked]="onLikeClicked"
         [onDislikeClicked]="onDislikeClicked">
     </name-card>
+
+    <mat-progress-spinner
+        *ngIf="!currentName"
+        color="accent"
+        mode="indeterminate"
+        diameter="60">
+    </mat-progress-spinner>
 </div>

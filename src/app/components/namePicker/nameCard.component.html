@@ -3,7 +3,9 @@
         <div class="name-card__name">{{name.name}}</div>
         <div class="name-card__desc">Used {{name.count}} times in 2017 in US</div>
 
-        <button type="button" (click)="onLikeClicked()">Like</button>
-        <button type="button" (click)="onDislikeClicked()">Dislike</button>
+        <div class="name-card__button-container">
+            <button type="button" (click)="onDislikeClicked()" mat-raised-button>Dislike</button>
+            <button type="button" (click)="onLikeClicked()" mat-raised-button color="primary">Like</button> 
+        </div>
     </div>
 </div>

@@ -3,8 +3,10 @@
     color: #333;
     margin: 0 auto;
     max-width: 300px;
+    min-width: 100%;
     border-radius: 4px;
     padding: 16px;
+    box-sizing: border-box;
 
     &__name {
         font-size: 24px;
@@ -12,5 +14,13 @@
     &__desc {
         font-size: 14px;
         margin: 8px 0;
+    }
+
+    &__button-container {
+        display: flex;
+
+        button {
+            flex: 1;
+        }
     }
 }

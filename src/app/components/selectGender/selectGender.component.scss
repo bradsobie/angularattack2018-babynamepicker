@@ -6,11 +6,17 @@
     left: 0;
     right: 0;
 
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+
     &__button {
         flex: 50%;
         cursor: pointer;
         color: #fff;
         font-size: 40px;
+        border: 0;
+        outline: none;
 
         &--boy {
             background-color: #6FE8FF;

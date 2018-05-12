@@ -6,7 +6,7 @@ import { UserService } from '../../services/user.service';
 @Component({
   selector: 'select-gender',
   templateUrl: './selectGender.component.html',
-  styleUrls: ['./selectGender.component.css']
+  styleUrls: ['./selectGender.component.scss']
 })
 export class SelectGenderComponent {
   constructor(

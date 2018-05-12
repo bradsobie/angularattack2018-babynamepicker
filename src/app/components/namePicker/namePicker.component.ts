@@ -7,7 +7,7 @@ import { UserService } from '../../services/user.service';
 @Component({
   selector: 'name-picker',
   templateUrl: './namePicker.component.html',
-  styleUrls: ['./namePicker.component.css']
+  styleUrls: ['./namePicker.component.scss']
 })
 export class NamePickerComponent implements OnInit {
   names: any;

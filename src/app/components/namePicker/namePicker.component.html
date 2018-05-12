@@ -1,3 +1,5 @@
-<name-card [name]="currentName"></name-card>
-
-<button type="button" (click)="onNextNameClicked()">Next name</button>
+<name-card
+  [name]="currentName"
+  [onLikeClicked]="onLikeClicked"
+  [onDislikeClicked]="onDislikeClicked">
+</name-card>

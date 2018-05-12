@@ -15,7 +15,10 @@ export class NamePickerComponent implements OnInit {
   constructor(
     private namesService: NamesService,
     private userService: UserService
-  ) {}
+  ) {
+    this.onLikeClicked = this.onLikeClicked.bind(this);
+    this.onDislikeClicked = this.onDislikeClicked.bind(this);
+  }
 
   ngOnInit() {
     this.userService.getGender().then((gender) => {
@@ -43,7 +46,11 @@ export class NamePickerComponent implements OnInit {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  onNextNameClicked() {
+  onLikeClicked() {
+    this.showNewName();
+  }
+
+  onDislikeClicked() {
     this.showNewName();
   }
 }

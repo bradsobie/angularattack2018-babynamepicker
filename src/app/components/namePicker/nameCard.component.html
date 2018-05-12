@@ -1,1 +1,7 @@
-{{name && name.name}}
+<div *ngIf="name">
+    <div>{{name.name}}</div>
+    <div>Used {{name.count}} in 2017 in US</div>
+
+    <button type="button" (click)="onLikeClicked()">Like</button>
+    <button type="button" (click)="onDislikeClicked()">Dislike</button>
+</div>

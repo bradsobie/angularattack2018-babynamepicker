@@ -7,4 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class NameCardComponent {
   @Input() name: any;
+  @Input() onLikeClicked: any;
+  @Input() onDislikeClicked: any;
 }

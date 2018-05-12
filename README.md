@@ -1,6 +1,6 @@
-# BabyNameGenerator
+# Baby Name Picker
 
-[Live app](http://baby-name-generator-app.s3-website-us-east-1.amazonaws.com)
+[Live app](http://baby-name-picker.s3-website-us-east-1.amazonaws.com)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 

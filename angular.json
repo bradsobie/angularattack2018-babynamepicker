@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "baby-name-generator": {
+    "baby-name-picker": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/baby-name-generator",
+            "outputPath": "dist/baby-name-picker",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -54,18 +54,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "baby-name-generator:build"
+            "browserTarget": "baby-name-picker:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "baby-name-generator:build:production"
+              "browserTarget": "baby-name-picker:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "baby-name-generator:build"
+            "browserTarget": "baby-name-picker:build"
           }
         },
         "test": {
@@ -99,7 +99,7 @@
         }
       }
     },
-    "baby-name-generator-e2e": {
+    "baby-name-picker-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {

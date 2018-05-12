@@ -1,0 +1,43 @@
+.select-gender-button {
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+
+    &--boy {
+        background-color: #6FE8FF;
+    }
+
+    &--girl {
+        background-color: #FFAEF0;
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title {
+        color: #fff;
+        font-size: 40px;
+    }
+
+    &__icon {
+        font-size: 30px;
+        opacity: 0;
+        transition: opacity 0.15s;
+        margin-left: -30px;
+        margin-right: 16px;
+    }
+
+    &:hover,
+    &:focus {
+        .select-gender-button__icon {
+            opacity: 1;
+        }
+    }
+}

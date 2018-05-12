@@ -10,20 +10,7 @@
         flex-direction: column;
     }
 
-    &__button {
+    select-gender-button {
         flex: 50%;
-        cursor: pointer;
-        color: #fff;
-        font-size: 40px;
-        border: 0;
-        outline: none;
-
-        &--boy {
-            background-color: #6FE8FF;
-        }
-
-        &--girl {
-            background-color: #FFAEF0;
-        }
     }
 }

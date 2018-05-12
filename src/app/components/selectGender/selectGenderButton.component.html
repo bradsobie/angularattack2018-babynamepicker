@@ -1,0 +1,12 @@
+<button
+    class="select-gender-button"
+    [ngClass]="{'select-gender-button--boy': gender === 'M', 'select-gender-button--girl': gender === 'F'}"
+    (click)="onClicked(gender)"
+    type="button">
+    <div class="select-gender-button__inner">
+        <i class="material-icons select-gender-button__icon">check_circle</i>
+        <div class="select-gender-button__title">
+            {{gender === 'M' ? 'boy' : 'girl'}}
+        </div>
+    </div>
+</button>

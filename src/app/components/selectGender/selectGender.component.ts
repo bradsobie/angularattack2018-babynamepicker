@@ -12,7 +12,9 @@ export class SelectGenderComponent {
   constructor(
     private userService: UserService,
     private router: Router
-  ) {}
+  ) {
+    this.onGenderClicked = this.onGenderClicked.bind(this);
+  }
 
   onGenderClicked(gender) {
     this.userService.updateGender(gender).then(() => {

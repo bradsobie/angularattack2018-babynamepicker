@@ -1,4 +1,10 @@
 <div class="select-gender">
-    <button class="select-gender__button select-gender__button--boy" type="button" (click)="onGenderClicked('M')">boy</button>
-    <button class="select-gender__button select-gender__button--girl" type="button" (click)="onGenderClicked('F')">girl</button>
+    <select-gender-button
+        [gender]="'M'"
+        [onClicked]="onGenderClicked">
+    </select-gender-button>
+    <select-gender-button
+        [gender]="'F'"
+        [onClicked]="onGenderClicked">
+    </select-gender-button>
 </div>

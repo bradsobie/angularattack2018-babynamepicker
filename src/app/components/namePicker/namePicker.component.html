@@ -1,5 +1,8 @@
-<name-card
-  [name]="currentName"
-  [onLikeClicked]="onLikeClicked"
-  [onDislikeClicked]="onDislikeClicked">
-</name-card>
+<div class="name-picker"
+    [ngClass]="{'name-picker--boy': gender === 'M', 'name-picker--girl': gender === 'F'}">
+    <name-card
+        [name]="currentName"
+        [onLikeClicked]="onLikeClicked"
+        [onDislikeClicked]="onDislikeClicked">
+    </name-card>
+</div>

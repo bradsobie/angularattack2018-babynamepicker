@@ -1,3 +1,5 @@
+@import '../../../variables';
+
 .select-gender-button {
     cursor: pointer;
     border: 0;
@@ -7,11 +9,11 @@
     width: 100%;
 
     &--boy {
-        background-color: #6FE8FF;
+        background-color: $boy;
     }
 
     &--girl {
-        background-color: #FFAEF0;
+        background-color: $girl;
     }
 
     &__inner {

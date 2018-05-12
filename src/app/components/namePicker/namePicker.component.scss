@@ -1,0 +1,16 @@
+@import '../../../variables';
+
+.name-picker {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    &--boy {
+        background-color: $boy;
+    }
+    &--girl {
+        background-color: $girl;
+    }
+}

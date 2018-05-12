@@ -12,6 +12,7 @@ import { UserService } from '../../services/user.service';
 export class NamePickerComponent implements OnInit {
   names: any;
   currentName: any;
+  gender: any;
   constructor(
     private namesService: NamesService,
     private userService: UserService
@@ -22,6 +23,7 @@ export class NamePickerComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getGender().then((gender) => {
+      this.gender = gender;
       this.getNames(gender).then(() => {
         this.showNewName();
       });

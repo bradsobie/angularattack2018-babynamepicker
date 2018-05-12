@@ -11,6 +11,7 @@ import { UserService } from '../../services/user.service';
 })
 export class NamePickerComponent implements OnInit {
   names: any;
+  currentName: any;
   constructor(
     private namesService: NamesService,
     private userService: UserService
@@ -26,13 +27,13 @@ export class NamePickerComponent implements OnInit {
 
   showNewName() {
     const randomNameIndex = this.getRandomNumber(0, this.names.length);
-    console.log(this.names[randomNameIndex].name);
+    this.currentName = this.names[randomNameIndex];
+    console.log(randomNameIndex, this.currentName);
   }
 
 
   getNames(gender) {
     return this.namesService.getNames(gender)
-      .toPromise()
       .then((names: any) => {
         return this.names = names;
       });
@@ -40,5 +41,9 @@ export class NamePickerComponent implements OnInit {
 
   getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  onNextNameClicked() {
+    this.showNewName();
   }
 }

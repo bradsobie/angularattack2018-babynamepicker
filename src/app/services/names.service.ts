@@ -16,6 +16,11 @@ export class NamesService {
       query.equalTo('gender', gender);
     }
 
-    return dataStore.find(query);
+    return new Promise((resolve, reject) => {
+      dataStore.find(query)
+        .toPromise()
+        .then((names) => resolve(names))
+        .catch((err) => reject(err));
+    });
   }
 }

@@ -25,7 +25,7 @@ export class UserService {
         }
       })
       .then(() => resolve())
-      .catch(() => reject());
+      .catch((err) => reject(err));
     });
   }
 

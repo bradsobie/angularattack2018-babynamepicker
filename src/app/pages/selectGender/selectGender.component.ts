@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { UserService } from '../../services/user.service';
 
@@ -8,11 +9,14 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./selectGender.component.css']
 })
 export class SelectGenderComponent {
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) {}
 
   onGenderClicked(gender) {
     this.userService.updateGender(gender).then(() => {
-      alert('gender set!');
+      this.router.navigateByUrl('/namepicker');
     });
   }
 }

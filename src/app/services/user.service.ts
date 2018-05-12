@@ -18,11 +18,20 @@ export class UserService {
   }
 
   updateGender(gender) {
-    return Kinvey.User.update({
-      data: {
-        nameGender: gender
-      }
+    return new Promise((resolve, reject) => {
+      return Kinvey.User.update({
+        data: {
+          nameGender: gender
+        }
+      })
+      .then(() => resolve())
+      .catch(() => reject());
     });
+  }
+
+  getGender() {
+    const activeUser: any = Kinvey.User.getActiveUser();
+    return Promise.resolve(activeUser.data.data.nameGender);
   }
 
   getUser() {

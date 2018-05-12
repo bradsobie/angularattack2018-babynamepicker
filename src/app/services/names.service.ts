@@ -10,6 +10,8 @@ export class NamesService {
     const query = new Kinvey.Query();
     query.greaterThanOrEqualTo('count', 150);
 
+    console.log(gender);
+
     if (gender) {
       query.equalTo('gender', gender);
     }

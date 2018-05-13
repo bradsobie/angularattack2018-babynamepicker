@@ -4,7 +4,7 @@
             <span [matBadge]="blacklist && blacklist.length" matBadgeColor="warn" matBadgeOverlap="false" [matBadgeHidden]="!blacklist || blacklist.length === 0">Disliked names</span>
         </mat-card-title>
         <mat-card-content>
-            <p>Names in this list won't reappear when selecting names.</p>
+            <p *ngIf="blacklist && blacklist.length > 0">Names in this list won't reappear when selecting names.</p>
             <mat-list>
                 <mat-list-item *ngFor="let name of blacklist">
                     <h4 mat-line>{{name.name}}</h4>

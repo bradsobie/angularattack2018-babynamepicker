@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 import { UserService } from '../../services/user.service';
 
@@ -8,12 +9,24 @@ import { UserService } from '../../services/user.service';
   templateUrl: './routeContainer.component.html',
   styleUrls: ['./routeContainer.component.scss']
 })
-export class RouteContainerComponent implements OnInit {
+export class RouteContainerComponent implements OnInit, OnDestroy {
+  mobileQueryListener: any;
+  mobileQuery: MediaQueryList;
   constructor(
     private userService: UserService,
     private router: Router,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute,
+    private changeDetectorRef: ChangeDetectorRef,
+    private media: MediaMatcher
+  ) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this.mobileQueryListener);
+  }
+
+  ngOnDestroy() {
+    this.mobileQuery.removeListener(this.mobileQueryListener);
+  }
 
   ngOnInit() {
     if (this.router.url === '/user') {

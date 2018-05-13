@@ -7,17 +7,26 @@ import { KinveyPromiseWrapper } from './kinveyPromiseWrapper.service';
   providedIn: 'root'
 })
 export class NamesService {
-  constructor(private kinveyPromiseWrapper: KinveyPromiseWrapper) {}
+  names: any;
+  constructor(private kinveyPromiseWrapper: KinveyPromiseWrapper) {
+    this.names = {};
+  }
 
   getNames(gender) {
+    if (this.names[gender] && this.names[gender].length > 0) {
+      return Promise.resolve(this.names[gender]);
+    }
     const dataStore = Kinvey.DataStore.collection('names');
     const query = new Kinvey.Query();
-    query.greaterThanOrEqualTo('count', 200);
+    query.greaterThanOrEqualTo('count', 500);
 
     if (gender) {
       query.equalTo('gender', gender);
     }
 
-    return this.kinveyPromiseWrapper.promise(dataStore.find(query).toPromise());
+    return this.kinveyPromiseWrapper.promise(dataStore.find(query).toPromise()).then((names) => {
+      this.names[gender] = names;
+      return names;
+    });
   }
 }

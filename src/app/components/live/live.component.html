@@ -7,8 +7,11 @@
         <mat-card-content>
             <p>This is a live feed of events from other users of the app.</p>
             <mat-list>
-                <mat-list-item *ngFor="let event of events">
-                    <h4 mat-line>Someone {{event.action === 'like' ? 'liked' : 'disliked'}} the name {{event.name.name}}</h4>
+                <mat-list-item *ngFor="let event of events | reverse">
+                    <h4 mat-line>
+                        <span>{{event.name.name}}</span>
+                        <i class="material-icons" [ngClass]="{'boy-icon': event.name.gender === 'M', 'girl-icon': event.name.gender === 'F'}">{{event.action === 'like' ? 'favorite' : 'thumb_down'}}</i>
+                    </h4>
                 </mat-list-item>
             </mat-list>
 

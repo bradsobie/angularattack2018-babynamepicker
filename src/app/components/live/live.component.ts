@@ -26,7 +26,7 @@ export class LiveComponent implements OnInit {
             onMessage: (m) => {
               console.log('onMessage', m);
               this.zone.run(() => {
-                this.events.push(m);
+                this.events = [...this.events, m];
               });
             }
           });

@@ -1,3 +1,5 @@
+@import '../../../variables';
+
 .live {
     padding: 16px;
     margin-top: 44px;
@@ -8,9 +10,25 @@
     mat-list-item {
         border-top: 1px solid #ecebeb;
         background-color: #fff;
+        opacity: 0.2;
 
         &:first-child {
             border-top: 0;
+            opacity: 1;
+        }
+
+        h4 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .boy-icon {
+            color: $boy;
+        }
+
+        .girl-icon {
+            color: $girl;
         }
     }
 

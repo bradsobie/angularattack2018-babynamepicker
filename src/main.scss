@@ -16,6 +16,18 @@ button {
     font-weight: normal;
 }
 
+.mat-badge {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 0;
+    align-items: center;
+    margin-right: 0 !important;
+}
+
+.mat-badge-content {
+    position: static !important;
+}
+
 .sidenav-container__sidenav {
     .mat-list-item-content {
         justify-content: center;

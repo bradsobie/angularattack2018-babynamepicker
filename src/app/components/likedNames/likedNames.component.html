@@ -1,0 +1,12 @@
+<div class="liked-names">
+    <mat-card>
+        <mat-card-title>Liked names</mat-card-title>
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item *ngFor="let name of whitelist">
+                    <h4 mat-line>{{name.name}}</h4>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 
-import { MatListModule } from '@angular/material';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatBadgeModule } from '@angular/material/badge';
+import {
+  MatListModule,
+  MatProgressSpinnerModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatBadgeModule,
+  MatCardModule
+} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -13,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatProgressSpinnerModule,
     MatSidenavModule,
     MatBadgeModule,
+    MatCardModule,
     BrowserAnimationsModule
   ],
   exports: [
@@ -21,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatProgressSpinnerModule,
     MatSidenavModule,
     MatBadgeModule,
+    MatCardModule,
     BrowserAnimationsModule
   ]
 })

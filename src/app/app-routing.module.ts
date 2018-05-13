@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SelectGenderComponent } from './components/selectGender/selectGender.component';
 import { NamePickerComponent } from './components/namePicker/namePicker.component';
 import { RouteContainerComponent } from './components/routeContainer/routeContainer.component';
+import { LikedNamesComponent } from './components/likedNames/likedNames.component';
 import { UserResolver } from './components/routeContainer/routeResolver';
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
     component: RouteContainerComponent,
     children: [
       { path: 'selectgender', component: SelectGenderComponent },
-      { path: 'namepicker', component: NamePickerComponent }
+      { path: 'namepicker', component: NamePickerComponent },
+      { path: 'likednames', component: LikedNamesComponent }
     ]
   },
   {

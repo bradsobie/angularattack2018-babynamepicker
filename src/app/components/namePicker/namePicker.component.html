@@ -7,22 +7,9 @@
         [onDislikeClicked]="onDislikeClicked">
     </name-card>
 
-<!--     <div>
-        <div>Dislike</div>
-        <ul>
-            <li *ngFor="let name of blacklist">{{name.name}}</li>
-        </ul>
-    </div>
-    <div>
-        <div>Like</div>
-        <ul>
-            <li *ngFor="let name of whitelist">{{name.name}}</li>
-        </ul>
-    </div> -->
-
     <mat-progress-spinner
         *ngIf="!currentName"
-        color="primary"
+        color="accent"
         mode="indeterminate"
         diameter="60">
     </mat-progress-spinner>

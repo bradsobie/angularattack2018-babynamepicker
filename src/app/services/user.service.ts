@@ -36,13 +36,14 @@ export class UserService {
   }
 
   getGender() {
-    const activeUser: any = Kinvey.User.getActiveUser();
+    return new Promise((resolve, reject) => {
+      const activeUser: any = Kinvey.User.getActiveUser();
+      if (activeUser && activeUser.data && activeUser.data.data) {
+        return resolve(activeUser.data.data.nameGender);
+      }
 
-    if (activeUser && activeUser.data && activeUser.data.data) {
-      return Promise.resolve(activeUser.data.data.nameGender);
-    }
-
-    return Promise.reject('gender not selected');
+      return reject('gender not selected');
+    });
   }
 
   getUser() {

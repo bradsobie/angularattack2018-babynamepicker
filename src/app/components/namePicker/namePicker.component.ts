@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Kinvey } from 'kinvey-angular2-sdk';
 
 import { NamesService } from '../../services/names.service';
@@ -17,24 +18,22 @@ export class NamePickerComponent implements OnInit {
   blacklist: any;
   constructor(
     private namesService: NamesService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     this.onLikeClicked = this.onLikeClicked.bind(this);
     this.onDislikeClicked = this.onDislikeClicked.bind(this);
   }
 
   ngOnInit() {
-    Promise.all([
-      this.userService.getGender(),
-      this.userService.getNameBlacklist(),
-      this.userService.getNameWhitelist()
-    ]).then(([gender, blacklist, whitelist]) => {
+    this.userService.getGender().then((gender) => {
       this.gender = gender;
-      this.blacklist = blacklist;
-      this.whitelist = whitelist;
       this.getNames(gender).then(() => {
         this.showNewName();
       });
+    }).catch((err) => {
+      this.router.navigate(['../selectgender'], { relativeTo: this.route });
     });
   }
 

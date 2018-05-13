@@ -1,3 +1,5 @@
+@import '../../../variables';
+
 .sidenav-container {
     position: absolute;
     top: 0;
@@ -41,6 +43,13 @@
         i {
             font-size: 35px;
         }
+    }
+
+    &--boy {
+        background-color: $boy;
+    }
+    &--girl {
+        background-color: $girl;
     }
 }
 

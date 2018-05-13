@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
 
 import { UserService } from '../../services/user.service';
@@ -13,6 +13,7 @@ export class RouteContainerComponent implements OnInit, OnDestroy {
   mobileQueryListener: any;
   mobileQuery: MediaQueryList;
   opened: boolean;
+  gender: any;
   constructor(
     private userService: UserService,
     private router: Router,
@@ -24,6 +25,15 @@ export class RouteContainerComponent implements OnInit, OnDestroy {
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this.mobileQueryListener);
     this.opened = false;
+
+    router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.userService.getGender()
+          .then((gender) => {
+            this.gender = gender;
+          });
+      }
+    });
   }
 
   ngOnDestroy() {

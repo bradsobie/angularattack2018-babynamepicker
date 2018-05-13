@@ -12,16 +12,18 @@
       <a mat-list-item routerLink="selectgender" routerLinkActive="sidenav-link--active">gender</a>
       <a mat-list-item routerLink="namepicker" routerLinkActive="sidenav-link--active">names</a>
       <a mat-list-item routerLink="likednames" routerLinkActive="sidenav-link--active">
-        <span matBadge="4" matBadgeOverlap="false">liked</span>
+        <span>liked</span>
       </a>
       <a mat-list-item routerLink="dislikednames" routerLinkActive="sidenav-link--active">
-        <span matBadge="10" matBadgeOverlap="false" matBadgeColor="warn">disliked</span>
+        <span>disliked</span>
       </a>
       <a mat-list-item href="http://www.angularattack.com/entries/372-the-power-within/vote" target="_blank" class="vote-link">vote!</a>
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content class="sidenav-content">
+  <mat-sidenav-content
+    class="sidenav-content"
+    [ngClass]="{'sidenav-content--boy': gender === 'M', 'sidenav-content--girl': gender === 'F'}">
     <button type="button" class="sidenav-content__toggle" (click)="onToggleClicked()">
       <i class="material-icons">menu</i>
     </button>

@@ -33,6 +33,7 @@ export class RouteContainerComponent implements OnInit, OnDestroy {
           .then((gender) => {
             this.gender = gender;
             this.isBoyTheme = gender === 'M';
+            this.userService.setThemeColor(gender);
           });
       }
 

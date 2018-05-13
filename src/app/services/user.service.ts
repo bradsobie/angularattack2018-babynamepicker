@@ -9,6 +9,11 @@ import { KinveyPromiseWrapper } from './kinveyPromiseWrapper.service';
 export class UserService {
   constructor(private kinveyPromiseWrapper: KinveyPromiseWrapper) {}
 
+  setThemeColor(gender) {
+    const themeMetaTag = window.document.querySelector('meta[name="theme-color"]');
+    themeMetaTag.setAttribute('content', gender === 'M' ? '#6ec6ff' : '#ff94c2');
+  }
+
   initUser() {
     const activeUser = Kinvey.User.getActiveUser();
     if (activeUser) {
@@ -32,7 +37,9 @@ export class UserService {
       data: {
         nameGender: gender
       }
-    }));
+    })).then(() => {
+      this.setThemeColor(gender);
+    });
   }
 
   getGender() {

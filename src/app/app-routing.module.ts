@@ -5,6 +5,7 @@ import { SelectGenderComponent } from './components/selectGender/selectGender.co
 import { NamePickerComponent } from './components/namePicker/namePicker.component';
 import { RouteContainerComponent } from './components/routeContainer/routeContainer.component';
 import { LikedNamesComponent } from './components/likedNames/likedNames.component';
+import { DislikedNamesComponent } from './components/dislikedNames/dislikedNames.component';
 import { UserResolver } from './components/routeContainer/routeResolver';
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
     children: [
       { path: 'selectgender', component: SelectGenderComponent },
       { path: 'namepicker', component: NamePickerComponent },
-      { path: 'likednames', component: LikedNamesComponent }
+      { path: 'likednames', component: LikedNamesComponent },
+      { path: 'dislikednames', component: DislikedNamesComponent }
     ]
   },
   {

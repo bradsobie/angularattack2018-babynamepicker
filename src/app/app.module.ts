@@ -7,6 +7,7 @@ import { SelectGenderModule } from './components/selectGender/selectGender.modul
 import { NamePickerModule } from './components/namePicker/namePicker.module';
 import { RouteContainerModule } from './components/routeContainer/routeContainer.module';
 import { LikedNamesModule } from './components/likedNames/likedNames.module';
+import { DislikedNamesModule } from './components/dislikedNames/dislikedNames.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LikedNamesModule } from './components/likedNames/likedNames.module';
     SelectGenderModule,
     NamePickerModule,
     RouteContainerModule,
-    LikedNamesModule
+    LikedNamesModule,
+    DislikedNamesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

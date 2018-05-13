@@ -6,7 +6,7 @@
     bottom: 0;
 
     &__sidenav {
-        width: 150px;
+        width: 200px;
     }
 
     .sidenav-link {
@@ -36,6 +36,11 @@
         left: 8px;
         z-index: 1;
         color: #fff;
+        outline: none;
+
+        i {
+            font-size: 35px;
+        }
     }
 }
 

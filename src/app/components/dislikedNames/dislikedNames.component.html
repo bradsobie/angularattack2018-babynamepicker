@@ -5,9 +5,11 @@
             <mat-list>
                 <mat-list-item *ngFor="let name of blacklist">
                     <h4 mat-line>{{name.name}}</h4>
-                    <button type="button" class="delete-button" (click)="onDeleteClicked(name)">
-                        <i class="material-icons">close</i>
-                    </button>
+                    <div>
+                        <button type="button" class="delete-button" (click)="onDeleteClicked(name)">
+                            <i class="material-icons">close</i>
+                        </button>
+                    </div>
                 </mat-list-item>
             </mat-list>
 

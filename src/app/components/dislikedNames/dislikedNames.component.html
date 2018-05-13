@@ -1,6 +1,8 @@
 <div class="disliked-names">
     <mat-card>
-        <mat-card-title>Disliked names</mat-card-title>
+        <mat-card-title>
+            <span [matBadge]="blacklist && blacklist.length" matBadgeColor="warn" matBadgeOverlap="false" [matBadgeHidden]="!blacklist || blacklist.length === 0">Disliked names</span>
+        </mat-card-title>
         <mat-card-content>
             <mat-list>
                 <mat-list-item *ngFor="let name of blacklist">

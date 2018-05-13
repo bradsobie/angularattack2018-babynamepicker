@@ -1,6 +1,8 @@
 <div class="liked-names">
     <mat-card>
-        <mat-card-title>Liked names</mat-card-title>
+        <mat-card-title>
+            <span [matBadge]="whitelist && whitelist.length" matBadgeOverlap="false" [matBadgeHidden]="!whitelist || whitelist.length === 0">Liked names</span>
+        </mat-card-title>
         <mat-card-content>
             <mat-list>
                 <mat-list-item *ngFor="let name of whitelist">

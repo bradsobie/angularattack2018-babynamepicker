@@ -15,7 +15,8 @@ export class UserService {
       return activeUser.me()
         .then((activeUser: Kinvey.User) => activeUser)
         .catch(() => {
-          return this.kinveyPromiseWrapper.promise(Kinvey.User.logout()).finally(() => {
+          const logout: any = this.kinveyPromiseWrapper.promise(Kinvey.User.logout());
+          return logout.finally(() => {
             return this.kinveyPromiseWrapper.promise(Kinvey.User.signup())
               .then((user: Kinvey.User) => user);
           });

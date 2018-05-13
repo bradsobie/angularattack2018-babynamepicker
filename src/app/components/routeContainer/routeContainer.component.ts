@@ -33,6 +33,10 @@ export class RouteContainerComponent implements OnInit, OnDestroy {
             this.gender = gender;
           });
       }
+
+      if (this.mobileQuery.matches) {
+        this.opened = false;
+      }
     });
   }
 

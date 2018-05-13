@@ -41,8 +41,6 @@ button {
     align-items: center;
     justify-content: center;
     transition: background-color 0.15s;
-    pointer-events: none;
-    opacity: 0;
     outline: none;
     cursor: pointer;
 
@@ -52,5 +50,10 @@ button {
 
     &:hover {
         background-color: #e8e8e8;
+    }
+
+    @media (min-width: 600px) {
+        pointer-events: none;
+        opacity: 0;
     }
 }

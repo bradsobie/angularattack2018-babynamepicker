@@ -1,7 +1,7 @@
 <div class="liked-names">
     <mat-card>
         <mat-card-title>
-            <span [matBadge]="whitelist && whitelist.length" matBadgeOverlap="false" [matBadgeHidden]="!whitelist || whitelist.length === 0">Liked names</span>
+            <span [matBadge]="whitelist && whitelist.length" matBadgeOverlap="false" [matBadgeHidden]="!whitelist || whitelist.length === 0">Favorite names</span>
         </mat-card-title>
         <mat-card-content>
             <mat-list>
@@ -15,7 +15,7 @@
                 </mat-list-item>
             </mat-list>
 
-            <div *ngIf="!loading && whitelist.length === 0">You haven't liked any names yet!</div>
+            <div *ngIf="!loading && whitelist.length === 0">You haven't favorited any names yet!</div>
         </mat-card-content>
     </mat-card>
 </div>

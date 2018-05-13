@@ -1,11 +1,4 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import '~@angular/material/theming';
-
-$custom-typography: mat-typography-config(
-  $font-family: "'Roboto Slab', serif"
-);
-
-@include angular-material-typography($custom-typography);
+@import './theme.scss';
 
 body,
 html {

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef, NgZone } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
 
@@ -14,6 +14,7 @@ export class RouteContainerComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
   opened: boolean;
   gender: any;
+  isBoyTheme: boolean;
   constructor(
     private userService: UserService,
     private router: Router,
@@ -31,6 +32,7 @@ export class RouteContainerComponent implements OnInit, OnDestroy {
         this.userService.getGender()
           .then((gender) => {
             this.gender = gender;
+            this.isBoyTheme = gender === 'M';
           });
       }
 

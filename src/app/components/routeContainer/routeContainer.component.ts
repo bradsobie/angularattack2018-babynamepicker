@@ -12,6 +12,7 @@ import { UserService } from '../../services/user.service';
 export class RouteContainerComponent implements OnInit, OnDestroy {
   mobileQueryListener: any;
   mobileQuery: MediaQueryList;
+  opened: boolean;
   constructor(
     private userService: UserService,
     private router: Router,
@@ -22,6 +23,7 @@ export class RouteContainerComponent implements OnInit, OnDestroy {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this.mobileQueryListener);
+    this.opened = false;
   }
 
   ngOnDestroy() {
@@ -39,5 +41,9 @@ export class RouteContainerComponent implements OnInit, OnDestroy {
           return false;
         });
     }
+  }
+
+  onToggleClicked() {
+    this.opened = !this.opened;
   }
 }

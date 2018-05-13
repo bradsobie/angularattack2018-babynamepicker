@@ -26,6 +26,19 @@
     }
 }
 
+.sidenav-content {
+    &__toggle {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        z-index: 1;
+        color: #fff;
+    }
+}
+
 .vote-link {
     position: absolute;
     bottom: 16px;

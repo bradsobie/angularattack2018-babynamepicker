@@ -4,7 +4,7 @@
     #sidenav
     [mode]="mobileQuery.matches ? 'over' : 'side'"
     [fixedInViewport]="mobileQuery.matches"
-    opened="true">
+    [(opened)]="opened">
     <a routerLink="selectgender" class="logo">
         <img src="assets/logo.png" class="logo__img">
     </a>
@@ -22,6 +22,9 @@
   </mat-sidenav>
 
   <mat-sidenav-content class="sidenav-content">
+    <button type="button" class="sidenav-content__toggle" (click)="onToggleClicked()">
+      <i class="material-icons">menu</i>
+    </button>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

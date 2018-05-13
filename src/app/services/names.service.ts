@@ -18,7 +18,7 @@ export class NamesService {
     }
     const dataStore = Kinvey.DataStore.collection('names');
     const query = new Kinvey.Query();
-    query.greaterThanOrEqualTo('count', 500);
+    query.greaterThanOrEqualTo('count', 200);
 
     if (gender) {
       query.equalTo('gender', gender);

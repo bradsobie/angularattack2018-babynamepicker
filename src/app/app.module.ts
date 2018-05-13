@@ -8,6 +8,7 @@ import { NamePickerModule } from './components/namePicker/namePicker.module';
 import { RouteContainerModule } from './components/routeContainer/routeContainer.module';
 import { LikedNamesModule } from './components/likedNames/likedNames.module';
 import { DislikedNamesModule } from './components/dislikedNames/dislikedNames.module';
+import { LiveModule } from './components/live/live.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DislikedNamesModule } from './components/dislikedNames/dislikedNames.mo
     NamePickerModule,
     RouteContainerModule,
     LikedNamesModule,
-    DislikedNamesModule
+    DislikedNamesModule,
+    LiveModule
   ],
   providers: [],
   bootstrap: [AppComponent]

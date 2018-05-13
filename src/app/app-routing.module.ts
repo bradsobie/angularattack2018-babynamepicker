@@ -6,6 +6,7 @@ import { NamePickerComponent } from './components/namePicker/namePicker.componen
 import { RouteContainerComponent } from './components/routeContainer/routeContainer.component';
 import { LikedNamesComponent } from './components/likedNames/likedNames.component';
 import { DislikedNamesComponent } from './components/dislikedNames/dislikedNames.component';
+import { LiveComponent } from './components/live/live.component';
 import { UserResolver } from './components/routeContainer/routeResolver';
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
       { path: 'selectgender', component: SelectGenderComponent },
       { path: 'namepicker', component: NamePickerComponent },
       { path: 'likednames', component: LikedNamesComponent },
-      { path: 'dislikednames', component: DislikedNamesComponent }
+      { path: 'dislikednames', component: DislikedNamesComponent },
+      { path: 'live', component: LiveComponent }
     ]
   },
   {

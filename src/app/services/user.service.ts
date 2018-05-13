@@ -2,12 +2,16 @@ import { Injectable } from '@angular/core';
 import { Kinvey } from 'kinvey-angular2-sdk';
 
 import { KinveyPromiseWrapper } from './kinveyPromiseWrapper.service';
+import { EventService } from './event.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  constructor(private kinveyPromiseWrapper: KinveyPromiseWrapper) {}
+  constructor(
+    private kinveyPromiseWrapper: KinveyPromiseWrapper,
+    private eventService: EventService
+   ) {}
 
   setThemeColor(gender) {
     const themeMetaTag = window.document.querySelector('meta[name="theme-color"]');
@@ -110,6 +114,7 @@ export class UserService {
   }
 
   addNameToWhitelist(name) {
+    this.eventService.sendEvent(name, 'like');
     return this.getNameWhitelist().then((whitelist) => {
       const newWhitelist = [...whitelist, name];
       return this.updateNameWhitelist(newWhitelist);
@@ -131,6 +136,7 @@ export class UserService {
   }
 
   addNameToBlacklist(name) {
+    this.eventService.sendEvent(name, 'dislike');
     return this.getNameBlacklist().then((blacklist) => {
       const newBlacklist = [...blacklist, name];
       return this.updateNameBlacklist(newBlacklist);

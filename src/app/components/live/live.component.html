@@ -1,0 +1,18 @@
+<div class="live">
+    <mat-card>
+        <mat-card-title class="live__header">
+            <span>Live events</span>
+            <i class="material-icons blink live__icon">fiber_manual_record</i>
+        </mat-card-title>
+        <mat-card-content>
+            <p>This is a live feed of events from other users of the app.</p>
+            <mat-list>
+                <mat-list-item *ngFor="let event of events">
+                    <h4 mat-line>Someone {{event.action === 'like' ? 'liked' : 'disliked'}} the name {{event.name.name}}</h4>
+                </mat-list-item>
+            </mat-list>
+
+            <div *ngIf="events.length === 0">No event received yet</div>
+        </mat-card-content>
+    </mat-card>
+</div>

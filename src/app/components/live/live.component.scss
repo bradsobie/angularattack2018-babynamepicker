@@ -1,0 +1,27 @@
+.live {
+    padding: 16px;
+    margin-top: 44px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+
+    mat-list-item {
+        border-top: 1px solid #ecebeb;
+        background-color: #fff;
+
+        &:first-child {
+            border-top: 0;
+        }
+    }
+
+    &__icon {
+        color: red;
+        font-size: 22px;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

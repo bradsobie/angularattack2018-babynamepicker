@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NgMaterialModule } from '../../ngMaterial.module';
 
 import { AppRoutingModule } from '../../app-routing.module';

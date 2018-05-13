@@ -11,12 +11,17 @@ export class UserService {
 
   initUser() {
     const activeUser = Kinvey.User.getActiveUser();
-
     if (activeUser) {
       return activeUser.me()
-        .then((activeUser: Kinvey.User) => activeUser);
+        .then((activeUser: Kinvey.User) => activeUser)
+        .catch(() => {
+          return this.kinveyPromiseWrapper.promise(Kinvey.User.logout()).finally(() => {
+            return this.kinveyPromiseWrapper.promise(Kinvey.User.signup())
+              .then((user: Kinvey.User) => user);
+          });
+        });
     } else {
-      return Kinvey.User.signup()
+      return this.kinveyPromiseWrapper.promise(Kinvey.User.signup())
         .then((user: Kinvey.User) => user);
     }
   }

@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SelectGenderComponent } from './components/selectGender/selectGender.component';
 import { NamePickerComponent } from './components/namePicker/namePicker.component';
 import { RouteContainerComponent } from './components/routeContainer/routeContainer.component';
+import { UserResolver } from './components/routeContainer/routeResolver';
 
 const routes: Routes = [
   {
@@ -13,6 +14,9 @@ const routes: Routes = [
   },
   {
     path: 'user',
+    resolve: {
+      team: UserResolver
+    },
     component: RouteContainerComponent,
     children: [
       { path: 'selectgender', component: SelectGenderComponent },
@@ -27,6 +31,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [UserResolver]
 })
 export class AppRoutingModule {}

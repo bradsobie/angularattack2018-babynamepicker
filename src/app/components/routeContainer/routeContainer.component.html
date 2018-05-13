@@ -11,6 +11,12 @@
     <mat-nav-list>
       <a mat-list-item routerLink="selectgender" routerLinkActive="sidenav-link--active">Gender</a>
       <a mat-list-item routerLink="namepicker" routerLinkActive="sidenav-link--active">Names</a>
+      <a mat-list-item routerLink="liked" routerLinkActive="sidenav-link--active">
+        <span matBadge="4" matBadgeOverlap="false">Liked</span>
+      </a>
+      <a mat-list-item routerLink="disliked" routerLinkActive="sidenav-link--active">
+        <span matBadge="10" matBadgeOverlap="false" matBadgeColor="warn">Disliked</span>
+      </a>
       <a mat-list-item href="http://www.angularattack.com/entries/372-the-power-within/vote" target="_blank" class="vote-link">Vote!</a>
     </mat-nav-list>
   </mat-sidenav>

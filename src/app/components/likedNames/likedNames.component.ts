@@ -11,14 +11,26 @@ import { UserService } from '../../services/user.service';
 })
 export class LikedNamesComponent implements OnInit {
   whitelist: any;
+  loading: boolean;
   constructor(
     private namesService: NamesService,
     private userService: UserService
-  ) {}
+  ) {
+    this.onDeleteClicked = this.onDeleteClicked.bind(this);
+  }
 
   ngOnInit() {
+    this.loading = true;
     this.userService.getNameWhitelist().then((whitelist) => {
       this.whitelist = whitelist;
+      this.loading = false;
     });
+  }
+
+  onDeleteClicked(name) {
+    this.userService.removeNameFromWhitelist(name)
+      .then((newWhitelist) => {
+        this.whitelist = newWhitelist;
+      });
   }
 }

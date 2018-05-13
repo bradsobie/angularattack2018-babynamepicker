@@ -5,8 +5,13 @@
             <mat-list>
                 <mat-list-item *ngFor="let name of blacklist">
                     <h4 mat-line>{{name.name}}</h4>
+                    <button type="button" class="delete-button" (click)="onDeleteClicked(name)">
+                        <i class="material-icons">close</i>
+                    </button>
                 </mat-list-item>
             </mat-list>
+
+            <div *ngIf="!loading && blacklist.length === 0">You haven't disliked any names yet!</div>
         </mat-card-content>
     </mat-card>
 </div>

@@ -11,14 +11,24 @@ import { UserService } from '../../services/user.service';
 })
 export class DislikedNamesComponent implements OnInit {
   blacklist: any;
+  loading: boolean;
   constructor(
     private namesService: NamesService,
     private userService: UserService
   ) {}
 
   ngOnInit() {
+    this.loading = true;
     this.userService.getNameBlacklist().then((blacklist) => {
       this.blacklist = blacklist;
+      this.loading = false;
     });
+  }
+
+  onDeleteClicked(name) {
+    this.userService.removeNameFromBlacklist(name)
+      .then((newBlacklist) => {
+        this.blacklist = newBlacklist;
+      });
   }
 }

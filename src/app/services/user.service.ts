@@ -109,6 +109,20 @@ export class UserService {
     });
   }
 
+  removeNameFromWhitelist(name) {
+    return this.getNameWhitelist().then((whitelist) => {
+      const newWhitelist = whitelist.filter((whitelistName) => whitelistName._id !== name._id);
+      return this.updateNameWhitelist(newWhitelist);
+    });
+  }
+
+  removeNameFromBlacklist(name) {
+    return this.getNameBlacklist().then((blacklist) => {
+      const newBlacklist = blacklist.filter((blacklistName) => blacklistName._id !== name._id);
+      return this.updateNameBlacklist(newBlacklist);
+    });
+  }
+
   addNameToBlacklist(name) {
     return this.getNameBlacklist().then((blacklist) => {
       const newBlacklist = [...blacklist, name];

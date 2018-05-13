@@ -1,4 +1,4 @@
-<div class="name-picker">
+<div class="name-picker" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
     <name-card
         *ngIf="currentName"
         [name]="currentName"

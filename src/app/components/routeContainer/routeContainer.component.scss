@@ -5,6 +5,10 @@
     right: 0;
     bottom: 0;
 
+    &__sidenav {
+        width: 150px;
+    }
+
     .sidenav-link {
         &--active {
             background-color: rgba(0,0,0,.04);
@@ -12,8 +16,18 @@
     }
 
     .logo {
-        height: 60px;
-        margin: 8px auto 0 auto;
-        display: block;
+        outline: none;
+
+        &__img {
+            height: 60px;
+            margin: 8px auto 0 auto;
+            display: block;
+        }
     }
+}
+
+.vote-link {
+    position: absolute;
+    bottom: 16px;
+    width: 100%;
 }

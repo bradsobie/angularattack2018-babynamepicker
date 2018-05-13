@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Kinvey } from 'kinvey-angular2-sdk';
 
+import { KinveyPromiseWrapper } from './kinveyPromiseWrapper.service';
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  constructor(private kinveyPromiseWrapper: KinveyPromiseWrapper) {}
+
   initUser() {
     const activeUser = Kinvey.User.getActiveUser();
 
@@ -18,15 +22,11 @@ export class UserService {
   }
 
   updateGender(gender) {
-    return new Promise((resolve, reject) => {
-      return Kinvey.User.update({
-        data: {
-          nameGender: gender
-        }
-      })
-      .then(() => resolve())
-      .catch((err) => reject(err));
-    });
+    return this.kinveyPromiseWrapper.promise(Kinvey.User.update({
+      data: {
+        nameGender: gender
+      }
+    }));
   }
 
   getGender() {
@@ -44,11 +44,7 @@ export class UserService {
   }
 
   updateUser(newData) {
-    return new Promise((resolve, reject) => {
-      return Kinvey.User.update(newData)
-      .then((updatedUser) => resolve(updatedUser))
-      .catch((err) => reject(err));
-    });
+    return this.kinveyPromiseWrapper.promise(Kinvey.User.update(newData));
   }
 
   getNameWhitelist() {

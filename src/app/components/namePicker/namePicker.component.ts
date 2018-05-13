@@ -78,9 +78,7 @@ export class NamePickerComponent implements OnInit {
     if (when === 'start') {
       this.swipeCoord = coord;
       this.swipeTime = time;
-    }
-
-    else if (when === 'end') {
+    } else if (when === 'end') {
       const direction = [coord[0] - this.swipeCoord[0], coord[1] - this.swipeCoord[1]];
       const duration = time - this.swipeTime;
 
@@ -92,6 +90,7 @@ export class NamePickerComponent implements OnInit {
         if (swipeDirection === 'next') {
           this.showNewName();
         }
+      }
     }
   }
 }

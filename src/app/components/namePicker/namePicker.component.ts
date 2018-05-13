@@ -29,14 +29,15 @@ export class NamePickerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getGender().then((gender) => {
-      this.gender = gender;
-      this.getNames(gender).then(() => {
-        this.showNewName();
+    Promise.all([this.userService.getGender(), this.userService.getNameBlacklist()])
+      .then(([gender, blacklist]) => {
+        this.gender = gender;
+        this.getNames(gender, blacklist).then(() => {
+          this.showNewName();
+        });
+      }).catch(() => {
+        this.router.navigate(['../selectgender'], { relativeTo: this.route });
       });
-    }).catch((err) => {
-      this.router.navigate(['../selectgender'], { relativeTo: this.route });
-    });
   }
 
   showNewName() {
@@ -44,8 +45,8 @@ export class NamePickerComponent implements OnInit {
     this.currentName = this.names[randomNameIndex];
   }
 
-  getNames(gender) {
-    return this.namesService.getNames(gender)
+  getNames(gender, blacklist) {
+    return this.namesService.getNames(gender, blacklist)
       .then((names: any) => {
         return this.names = names;
       });
@@ -67,6 +68,7 @@ export class NamePickerComponent implements OnInit {
     this.userService.addNameToBlacklist(this.currentName)
       .then((newBlacklist) => {
         this.blacklist = newBlacklist;
+        this.names = this.namesService.getFilteredNames(this.names, newBlacklist);
         this.showNewName()
       });
   }

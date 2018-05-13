@@ -12,7 +12,7 @@ export class NamesService {
     this.names = {};
   }
 
-  getNames(gender) {
+  getNames(gender, blacklist) {
     if (this.names[gender] && this.names[gender].length > 0) {
       return Promise.resolve(this.names[gender]);
     }
@@ -24,9 +24,22 @@ export class NamesService {
       query.equalTo('gender', gender);
     }
 
-    return this.kinveyPromiseWrapper.promise(dataStore.find(query).toPromise()).then((names) => {
-      this.names[gender] = names;
-      return names;
+    return this.kinveyPromiseWrapper.promise(dataStore.find(query).toPromise()).then((names: any) => {
+      const filteredNames = this.getFilteredNames(names, blacklist);
+      this.names[gender] = filteredNames;
+      return filteredNames;
+    });
+  }
+
+  getFilteredNames(names, blacklist) {
+    return names.filter((name) => {
+      let shouldInclude = true;
+      blacklist.forEach((blacklistedName) => {
+        if (name._id === blacklistedName._id) {
+           shouldInclude = false;
+        }
+      });
+      return shouldInclude;
     });
   }
 }

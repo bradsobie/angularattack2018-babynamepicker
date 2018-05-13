@@ -12,7 +12,7 @@ export class NamesService {
   getNames(gender) {
     const dataStore = Kinvey.DataStore.collection('names');
     const query = new Kinvey.Query();
-    query.greaterThanOrEqualTo('count', 150);
+    query.greaterThanOrEqualTo('count', 200);
 
     if (gender) {
       query.equalTo('gender', gender);

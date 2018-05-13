@@ -1,31 +1,30 @@
-import { Component, Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'route-container',
-  template: 'test'
+  templateUrl: './routeContainer.component.html',
+  styleUrls: ['./routeContainer.component.scss']
 })
-export class RouteContainerComponent {
-  constructor() {}
-}
-
-@Injectable()
-export class RootRouteGuard implements CanActivate {
+export class RouteContainerComponent implements OnInit {
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
-  canActivate() {
-    return this.userService.getGender()
-      .then((gender) => {
-        this.router.navigate(['namepicker']);
-        return false;
-      }).catch(() => {
-        this.router.navigate(['selectgender']);
-        return false;
-      });
+  ngOnInit() {
+    if (this.router.url === '/user') {
+      this.userService.getGender()
+        .then((gender) => {
+          this.router.navigate(['namepicker'], { relativeTo: this.route });
+          return false;
+        }).catch(() => {
+          this.router.navigate(['selectgender'], { relativeTo: this.route });
+          return false;
+        });
+    }
   }
 }

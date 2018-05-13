@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { UserService } from '../../services/user.service';
 
@@ -11,14 +11,15 @@ import { UserService } from '../../services/user.service';
 export class SelectGenderComponent {
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     this.onGenderClicked = this.onGenderClicked.bind(this);
   }
 
   onGenderClicked(gender) {
     this.userService.updateGender(gender).then(() => {
-      this.router.navigateByUrl('/namepicker');
+      this.router.navigate(['../namepicker'], { relativeTo: this.route });
     });
   }
 }

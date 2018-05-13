@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SelectGenderModule } from './components/selectGender/selectGender.module';
 import { NamePickerModule } from './components/namePicker/namePicker.module';
+import { RouteContainerModule } from './components/routeContainer/routeContainer.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NamePickerModule } from './components/namePicker/namePicker.module';
     BrowserModule,
     AppRoutingModule,
     SelectGenderModule,
-    NamePickerModule
+    NamePickerModule,
+    RouteContainerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

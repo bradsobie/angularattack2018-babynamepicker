@@ -3,24 +3,30 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { SelectGenderComponent } from './components/selectGender/selectGender.component';
 import { NamePickerComponent } from './components/namePicker/namePicker.component';
-import { RouteContainerComponent, RootRouteGuard } from './components/routeContainer/routeContainer.component';
+import { RouteContainerComponent } from './components/routeContainer/routeContainer.component';
 
 const routes: Routes = [
   {
     path: '',
-    canActivate: [RootRouteGuard],
-    component: RouteContainerComponent
+    redirectTo: 'user',
+    pathMatch: 'full'
   },
-  { path: 'selectgender', component: SelectGenderComponent },
-  { path: 'namepicker', component: NamePickerComponent }
+  {
+    path: 'user',
+    component: RouteContainerComponent,
+    children: [
+      { path: 'selectgender', component: SelectGenderComponent },
+      { path: 'namepicker', component: NamePickerComponent }
+    ]
+  },
+  {
+    path: '**',
+    redirectTo: 'user',
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-  declarations: [
-    RouteContainerComponent
-  ],
-  providers: [RootRouteGuard]
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+import { ReversePipe } from './components/reverse.pipe';
 import {
   MatListModule,
   MatProgressSpinnerModule,
@@ -11,6 +12,7 @@ import {
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
+  declarations: [ReversePipe],
   imports: [
     MatButtonModule,
     MatProgressSpinnerModule,
@@ -26,7 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatSidenavModule,
     MatBadgeModule,
     MatCardModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReversePipe
   ]
 })
 export class NgMaterialModule {}

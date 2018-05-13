@@ -5,7 +5,7 @@
         </mat-card-title>
         <mat-card-content>
             <mat-list>
-                <mat-list-item *ngFor="let name of whitelist">
+                <mat-list-item *ngFor="let name of whitelist | reverse">
                     <h4 mat-line>{{name.name}}</h4>
                     <div>
                         <button type="button" class="delete-button" (click)="onDeleteClicked(name)">
